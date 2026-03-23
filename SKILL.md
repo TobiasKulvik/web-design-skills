@@ -12,7 +12,7 @@ description: >
 
 # Web Design Skill Pack
 
-A modular library of 10 interconnected skills that help an AI agent build better websites
+A modular library of 11 interconnected skills that help an AI agent build better websites
 consistently. Each skill focuses on design principles, values, and outcomes — not on any
 particular CSS framework or toolchain. The guidance works equally well with Tailwind, vanilla
 CSS, CSS modules, Styled Components, or any other approach.
@@ -33,7 +33,8 @@ This is an orchestrator skill. Read the relevant sub-skills based on what you're
 7. **`responsive-design`** — Make layouts work across all screen sizes
 8. **`ui-components`** — Build buttons, cards, navigation, forms, and other UI elements
 9. **`interaction-patterns`** — Design hover states, animations, loading states, and user flows
-10. **`accessibility`** — Ensure WCAG 2.2 AA compliance across the entire interface
+10. **`ux-flows`** — Plan user journeys, conversion paths, onboarding, checkout, and trust placement
+11. **`accessibility`** — Ensure WCAG 2.2 AA compliance across the entire interface
 
 ## Skill Directory
 
@@ -50,6 +51,7 @@ Read each skill's SKILL.md when working on its domain:
 | Visual Hierarchy | `skills/visual-hierarchy/SKILL.md` | Deciding what to emphasize, scanning patterns, focal points |
 | Interaction Patterns | `skills/interaction-patterns/SKILL.md` | Designing animations, hover states, loading, error handling |
 | Content Structure | `skills/content-structure/SKILL.md` | Planning page sections, information architecture, copy |
+| UX Flows | `skills/ux-flows/SKILL.md` | User journeys, conversion, onboarding, checkout, trust signals |
 | Frontend Implementation | `skills/frontend-implementation/SKILL.md` | Design tokens, resets, performance, production readiness |
 
 ## Universal Principles

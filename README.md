@@ -13,6 +13,7 @@ A modular skill library that helps AI agents build better websites. Framework-ag
 | **responsive-design** | Flexbox/grid essentials, breakpoints, mobile-first |
 | **ui-components** | Buttons, cards, navigation, forms, modals, images |
 | **interaction-patterns** | Animation fundamentals, hover states, loading, errors |
+| **ux-flows** | User journeys, conversion, onboarding, checkout, trust signals |
 | **content-structure** | Page anatomy, SEO structure, information density |
 | **accessibility** | Contrast, keyboard nav, ARIA, touch targets |
 | **frontend-implementation** | Design tokens, resets, performance, production checklist |
