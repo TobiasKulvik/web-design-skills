@@ -24,7 +24,3 @@ npx skills add TobiasKulvik/web-design-skills
 ```
 
 Works with Cursor, Claude Code, Codex, Windsurf, and other agents.
-
-## Sources
-
-Built from 15 video transcripts on typography, layout, color, animation, and design thinking, combined with Anthropic's frontend-design skill, Vercel's web-design-guidelines, and general web design best practices.
