@@ -15,6 +15,7 @@ A modular skill library that helps AI agents build better websites. Framework-ag
 | **interaction-patterns** | Animation fundamentals, hover states, loading, errors |
 | **ux-flows** | User journeys, conversion, onboarding, checkout, trust signals |
 | **seo** | Meta tags, Open Graph, structured data, sitemaps, crawling |
+| **app-patterns** | App shells, sidebar nav, tabs, command palettes, app-specific components |
 | **internationalization** | Multi-language design, RTL, text expansion, cultural sensitivity |
 | **content-structure** | Page anatomy, heading hierarchy, information density |
 | **accessibility** | Contrast, keyboard nav, ARIA, touch targets |

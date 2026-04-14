@@ -12,7 +12,7 @@ description: >
 
 # Web Design Skill Pack
 
-A modular library of 13 interconnected skills that help an AI agent build better websites
+A modular library of 14 interconnected skills that help an AI agent build better websites
 consistently. Each skill focuses on design principles, values, and outcomes — not on any
 particular CSS framework or toolchain. The guidance works equally well with Tailwind, vanilla
 CSS, CSS modules, Styled Components, or any other approach.
@@ -28,13 +28,21 @@ This is an orchestrator skill. Read the relevant sub-skills based on what you're
 4. **`color-systems`** — Build the color palette, define tokens for theming
 5. **`frontend-implementation`** — Set up design tokens, resets, and base patterns
 
-### Then consult as needed:
-6. **`visual-hierarchy`** — Ensure the right things get attention in the right order
-7. **`responsive-design`** — Make layouts work across all screen sizes
-8. **`ui-components`** — Build buttons, cards, navigation, forms, and other UI elements
-9. **`interaction-patterns`** — Design hover states, animations, loading states, and user flows
-10. **`ux-flows`** — Plan user journeys, conversion paths, onboarding, checkout, and trust placement
-11. **`seo`** — Set up metadata, Open Graph, structured data, sitemaps, and search discoverability
+### Then consult based on what you're building:
+
+**For marketing sites / landing pages:**
+6. **`content-structure`** already covers site-specific page anatomy (hero, social proof, pricing, etc.)
+7. **`seo`** — Set up metadata, Open Graph, structured data, sitemaps, and search discoverability
+
+**For web apps / dashboards:**
+6. **`app-patterns`** — App shell layouts, sidebar nav, tabs, command palettes, data-heavy components
+
+**Always consult as needed:**
+7. **`visual-hierarchy`** — Ensure the right things get attention in the right order
+8. **`responsive-design`** — Make layouts work across all screen sizes
+9. **`ui-components`** — Build buttons, cards, navigation, forms, and other shared UI elements
+10. **`interaction-patterns`** — Design hover states, animations, loading states, and user flows
+11. **`ux-flows`** — Plan user journeys, conversion paths, onboarding, and trust placement
 12. **`internationalization`** — Design for multiple languages, RTL scripts, text expansion, and cultural differences
 13. **`accessibility`** — Ensure WCAG 2.2 AA compliance across the entire interface
 
@@ -55,6 +63,7 @@ Read each skill's SKILL.md when working on its domain:
 | Content Structure | `skills/content-structure/SKILL.md` | Planning page sections, information architecture, copy |
 | UX Flows | `skills/ux-flows/SKILL.md` | User journeys, conversion, onboarding, checkout, trust signals |
 | SEO & Discoverability | `skills/seo/SKILL.md` | Meta tags, Open Graph, structured data, sitemaps, crawling |
+| App Patterns | `skills/app-patterns/SKILL.md` | App shells, sidebar nav, tabs, command palettes, app-specific components |
 | Internationalization | `skills/internationalization/SKILL.md` | Multi-language design, RTL, text expansion, cultural considerations |
 | Frontend Implementation | `skills/frontend-implementation/SKILL.md` | Design tokens, resets, performance, production readiness |
 
