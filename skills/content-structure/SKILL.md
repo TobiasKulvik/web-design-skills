@@ -110,15 +110,10 @@ A typical web page flows through these sections:
 - Breadcrumbs for deep hierarchies
 - User flow > information architecture: optimize for the shortest path to the goal
 
-## SEO Essentials
+## SEO
 
-Search engines read your page structure. Good design and good SEO share the same foundation:
-
-- **Meta tags**: Every page needs a unique `<title>` (50-60 chars) and `<meta name="description">` (120-155 chars) that summarize the page's value
-- **Canonical URLs**: Use `<link rel="canonical">` to prevent duplicate content issues (www vs non-www, trailing slashes, query params)
-- **Structured data**: Add JSON-LD (`<script type="application/ld+json">`) for rich search results — Article, Product, FAQ, Organization, and BreadcrumbList are the most common schemas
-- **Image SEO**: Descriptive filenames (`blue-running-shoes.webp` not `IMG_4382.webp`), descriptive alt text, include key images in an XML sitemap
-- **Internal linking**: Link between related pages with descriptive anchor text — helps search engines understand site structure and distributes page authority
-- **URL structure**: Use readable, hierarchical URLs (`/products/shoes/blue-runner`) — avoid query strings for permanent pages
-- **Heading hierarchy**: Matches accessibility best practices — one `<h1>`, logical `<h2>`-`<h6>` structure (already covered above)
+See **`seo`** for the complete SEO skill — meta tags, Open Graph, structured data (JSON-LD),
+canonical URLs, sitemaps, robots configuration, image SEO, and internal linking strategy.
+Good content structure (semantic headings, descriptive URLs, logical page flow) is already
+the foundation of SEO.
 
