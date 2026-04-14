@@ -23,7 +23,7 @@ A modular skill library that helps AI agents build better websites. Framework-ag
 
 ## Install
 
-### Quick install (recommended)
+### Quick install
 
 ```bash
 npx skills add TobiasKulvik/web-design-skills
@@ -31,20 +31,18 @@ npx skills add TobiasKulvik/web-design-skills
 
 Works with Cursor, Claude Code, Codex, Windsurf, and other agents.
 
-### Claude Code manual install
+### Manual install (Claude Code)
 
-Add to your project's `.claude/settings.json`:
-
-```json
-{
-  "skills": ["TobiasKulvik/web-design-skills"]
-}
-```
-
-Or install via the CLI:
+Clone the repo into your project's `.claude/skills/` directory:
 
 ```bash
-claude skills add TobiasKulvik/web-design-skills
+git clone https://github.com/TobiasKulvik/web-design-skills.git .claude/skills/web-design-skills
+```
+
+Or for personal use across all projects:
+
+```bash
+git clone https://github.com/TobiasKulvik/web-design-skills.git ~/.claude/skills/web-design-skills
 ```
 
 ### Usage
