@@ -152,3 +152,131 @@ Within a single page, content should flow like a conversation:
 7. **Final push**: Last CTA for those who scrolled all the way
 
 This mirrors how a conversation works: you don't ask someone to buy before they know what you're selling.
+
+---
+
+# Web App & Dashboard Patterns
+
+The sections above focus on marketing sites and conversion flows. The patterns below
+apply to web apps, dashboards, SaaS products, and internal tools — where users return
+daily and the goal shifts from "convert" to "get things done efficiently."
+
+## Dashboard Design
+
+- **F-pattern scanning**: Users scan top-left first, then across, then down. Place the most important KPIs and status info top-left
+- **Key metrics visible immediately**: The dashboard is a home base — show status at a glance without requiring clicks
+- **Entry points, not dead ends**: Each card/widget should link deeper into the relevant section
+- **Don't overload**: Show 5-8 key metrics, not every data point. Link to detail views for the rest
+- **Default to the most useful time range** (last 7 days, current sprint, today) — let users change it
+- **Charts need context**: A number alone means nothing. Show trends, comparisons, or targets alongside raw values
+- **Loading and empty states matter here too**: A dashboard full of skeleton loaders or blank cards on first login feels broken
+
+## Empty States
+
+Empty states are not error states — they're opportunities to guide users. Three types:
+
+### First-use empty states
+The user just signed up and has no data yet. This is the most important empty state:
+- Explain what will appear here once they take action
+- Include a clear primary action ("Create your first project", "Import data", "Invite your team")
+- Optional: show a preview or illustration of what the populated state looks like
+- Never show a blank white page with no guidance
+
+### No-results empty states
+A search or filter returned nothing:
+- Confirm what they searched for ("No results for 'xyz'")
+- Suggest next steps: clear filters, broaden search, try different terms
+- Don't just say "No results found" — help them recover
+
+### Completed empty states
+Everything is done (inbox zero, all tasks complete):
+- Celebrate briefly ("All caught up!")
+- Suggest what to do next or let them rest — don't manufacture urgency
+
+## Settings Pages
+
+- **Group by category**: Account, Profile, Notifications, Security, Billing, Integrations — not one giant list
+- **Sidebar or tab navigation** for settings categories in complex apps
+- **Use toggles for on/off**, dropdowns for multiple choice, text fields for custom values
+- **Smart defaults**: Ship with sensible defaults so most users never need to touch settings
+- **Save behavior**: Auto-save with confirmation toast, or explicit Save button — pick one and be consistent. Never mix both patterns
+- **Dangerous actions isolated**: Delete account, reset data, revoke access — put these at the bottom, in a "Danger zone" section with confirmation dialogs
+- **Search within settings** for apps with many options (follow VS Code, GitHub, Notion pattern)
+- **Show current state**: If a setting is on, show that it's on. Don't make users guess
+
+## Data Tables
+
+### Structure
+- **Left-align text**, **right-align numbers** — this follows natural reading patterns and makes numbers easy to compare
+- **Sticky header row** so column labels stay visible on scroll
+- **Reasonable row density**: Default to comfortable spacing, offer a compact toggle for power users
+- **Zebra striping or subtle row borders** — pick one for scanability, not both
+
+### Sorting and Filtering
+- **Default sort**: Most recent first, or most relevant to the user's workflow
+- **Sort indicators** on column headers (chevron showing direction)
+- **Filters as chips/tags**: Show active filters visibly above the table so users know what's filtered
+- **Show result count** after filtering ("Showing 12 of 348 items")
+- **Instant filtering** feels faster than filter-then-apply, prefer it when dataset size allows
+
+### Pagination and Actions
+- **Pagination**: 10-50 rows per page with option to change. Show total count
+- **Row actions**: 1-2 inline actions (edit, delete) at the end of each row. For 3+, use a "..." menu
+- **Bulk actions**: Checkbox column + action toolbar that appears on selection ("Delete 3 items", "Export selected")
+- **Responsive**: On mobile, show only essential columns. Use expandable rows or cards instead of horizontal scroll
+
+## Notifications
+
+### In-App Notifications
+- **Bell icon with badge count** is the universal pattern — don't reinvent it
+- **Group related notifications**: "3 comments on your post" not three separate items
+- **Mark as read/unread** and **mark all as read**
+- **Link directly to the relevant item** — don't just say "Something happened", take them there
+- **Time-stamp everything** and show relative time ("2 hours ago", not "14:32 UTC")
+
+### Notification Preferences
+- Let users control: **what** they're notified about, **how** (in-app, email, push), and **how often** (real-time, daily digest, weekly)
+- Group preferences by category (comments, mentions, status changes, billing)
+- Offer a "mute all" or "quiet hours" option
+- Default to reasonable settings — most users won't customize, so the defaults should work well
+
+### Toast / Snackbar Notifications
+- Use for confirmations of actions the user just took ("Saved", "Deleted", "Copied")
+- Auto-dismiss after 3-5 seconds for success messages
+- Error toasts should persist until dismissed (don't auto-hide errors)
+- Include an undo action where applicable ("Item deleted. Undo")
+- Position consistently: bottom-left or bottom-center for non-blocking, top-center for important
+
+## Permission Requests
+
+- **Never ask on page load**: Users who haven't used the product yet will deny by default
+- **Ask in context**: Request notification permission after the user has done something they'd want to be notified about (e.g., placed an order → "Want delivery updates?")
+- **Explain the benefit first**: Use a custom pre-prompt explaining what they'll get before triggering the browser's native permission dialog
+- **Respect "no"**: If denied, don't ask again immediately. Offer a settings path to enable later
+- **Degrade gracefully**: The app must work without the permission. Push notifications, location, camera — all optional enhancements
+
+## Feature Discovery
+
+Introduce features when users need them, not all at once during onboarding:
+
+### Patterns (from least to most intrusive)
+- **Hotspots**: Subtle pulsing dots on UI elements that reveal a tooltip on hover/click — lowest interruption
+- **Tooltips**: Point to a specific element with a short explanation. Best for single features ("New! You can now filter by date")
+- **Interactive walkthroughs**: Step-by-step tooltip sequences that guide the user through a feature by having them actually use it — much more effective than passive tours
+- **Modals**: For major new features or important announcements. Use sparingly — they block the UI
+- **Changelogs/What's New**: A dedicated section (often behind a sparkle icon) for users who want to see all updates
+
+### Rules
+- Always skippable — never gate the product behind a tutorial
+- Show feature tips contextually: when the user first encounters the feature, not at login
+- Don't re-show dismissed tips. Respect the dismissal
+- Track what the user has seen so you don't repeat yourself
+
+## Search
+
+- **Always visible or one click away** in navigation for content-heavy apps
+- **Instant results** as the user types (debounced at 200-300ms)
+- **Show result categories** if searching across types (users, projects, documents)
+- **Recent searches and popular queries** in the empty search dropdown
+- **Keyboard shortcut** (Cmd/Ctrl+K is becoming standard) for power users
+- **No results state**: Suggest corrections, show related results, or offer to create a new item
