@@ -133,3 +133,5 @@ utilities for this (e.g., Tailwind's `motion-safe:` and `motion-reduce:` variant
 - [ ] Color blindness emulation (DevTools → Rendering → Emulate vision deficiencies)
 - [ ] Test with sound completely off (for sites using audio cues)
 - [ ] **Automated**: Lighthouse accessibility audit (target >90), ESLint `jsx-a11y` plugin for JSX/React projects
+- [ ] **CI integration**: axe-core (via `@axe-core/playwright`, `cypress-axe`, or `jest-axe`) for automated regression testing in CI pipelines
+- [ ] **CLI audits**: pa11y for quick command-line accessibility checks on URLs

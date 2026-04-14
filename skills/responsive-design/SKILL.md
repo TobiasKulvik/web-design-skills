@@ -23,6 +23,17 @@ description: Responsive web design patterns and implementation guide. Use this s
 - Grid is ideal for card layouts: equal-width columns that auto-reflow
 - Set a gap of 1-2rem between grid items
 
+## Container Queries
+
+Container queries (`@container`) let components respond to their parent's size instead of
+the viewport. Use them for truly reusable components that live in different layout contexts:
+
+- **Media queries**: respond to the viewport — use for page-level layout decisions
+- **Container queries**: respond to the parent container — use for component-level responsiveness
+- Set `container-type: inline-size` on the parent, then query it with `@container (min-width: 400px)`
+- Ideal for: cards that appear in both a sidebar (narrow) and main content (wide), reusable widgets, design system components
+- Supported in all major browsers since early 2023
+
 ## Key Breakpoints (mobile-first)
 
 | Breakpoint | Target | Typical columns |
@@ -46,7 +57,7 @@ description: Responsive web design patterns and implementation guide. Use this s
 - Mobile = usually 1 column, max 2
 - Stack 2-column desktop layouts into single column on mobile
 - On mobile, simplify: reduce content shown, not just shrink it
-- Touch targets: minimum 44x44px (WCAG) / 48x48px (Material Design)
+- Touch targets: minimum 24x24px (WCAG 2.2), recommended 44x44px, ideal 48x48px (Material Design)
 
 ## Responsive Typography
 - Use `rem` units so text scales with user preferences
@@ -75,6 +86,11 @@ description: Responsive web design patterns and implementation guide. Use this s
 Handle these system-level media queries in every project:
 - **prefers-reduced-motion: reduce** — disable or minimize all animations and transitions
 - **prefers-color-scheme: dark** — swap to dark mode color tokens
-- **prefers-contrast: more** — increase contrast ratios beyond minimums
+- **prefers-contrast: more** — increase contrast ratios beyond minimums:
+  - Use thicker borders (2px+) instead of subtle 1px lines
+  - Remove decorative gradients and replace with solid colors
+  - Increase font weight by one step (400 → 500, 500 → 600)
+  - Remove low-contrast placeholder text styling
+  - Ensure all text meets AAA contrast ratio (7:1) when possible
 
 Most frameworks have built-in utilities for these (e.g., Tailwind's `motion-safe:`, `dark:`).

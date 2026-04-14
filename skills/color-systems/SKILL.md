@@ -35,7 +35,11 @@ For UI work, chroma values rarely need to exceed 0.15-0.2.
 
 ### Dark Mode Neutral Scale (lightness values)
 
-| Role | Dark mode lightness | Light mode lightness |
+The table below uses HSL lightness percentages for familiarity. If using OKLCH, L maps
+similarly (0-100% or 0-1), but chroma (C) replaces saturation and typically stays under
+0.15 for UI work. The inversion formula works the same in both color spaces.
+
+| Role | Dark mode L (HSL) | Light mode L (HSL) |
 |------|--------------------|--------------------|
 | Base background | 0% | 100% |
 | Surface (cards) | 5% | 95% |
@@ -93,8 +97,10 @@ with `prefers-color-scheme`, theme providers in CSS-in-JS).
 
 ## Shadows Done Right
 
+This is the canonical shadow reference — other skills reference this section.
+
 - Never use pure black for shadows — it looks harsh and fake
-- Use 30% black (roughly #4D4D4D) at 30-50% opacity with multiply blend mode for soft, realistic shadows
+- Use semi-transparent black: `rgba(0,0,0,0.08)` to `rgba(0,0,0,0.15)` for subtle, realistic elevation
 - Layer two shadows for depth: a short tight one (1px blur, ~12% opacity) + a longer diffuse one (12px blur, ~6% opacity)
 - On dark backgrounds, shadows are nearly invisible — use subtle lighter borders or faint glows instead
 - Shadows and borders serve the same purpose (elevation) — use one or the other, rarely both
@@ -118,3 +124,9 @@ with `prefers-color-scheme`, theme providers in CSS-in-JS).
 - A neon pink hoodie on a sleek black-and-white site looks unprofessional
 - Use images where people look toward key content (eyes naturally follow gaze)
 - Images should support the design, not fight it
+
+## See Also
+
+- **`typography`** — dark mode text lightness values, font color hierarchy
+- **`visual-hierarchy`** — using color contrast for emphasis and de-emphasis
+- **`frontend-implementation`** — color token naming conventions and complete token reference

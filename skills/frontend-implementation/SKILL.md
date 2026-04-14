@@ -13,7 +13,8 @@ Components, or any other approach. Focus on the design outcome.
 
 Define these token categories at the start of every project. How you store them (CSS
 custom properties, Tailwind config, theme object, SCSS variables) doesn't matter — having
-them defined and used consistently does.
+them defined and used consistently does. This is the canonical token reference — see
+`layout-and-spacing` for spacing principles and `color-systems` for color theory.
 
 ### Typography Tokens
 
@@ -44,6 +45,7 @@ them defined and used consistently does.
 | space-12 | 3rem (48px) | Major section breaks |
 | space-16 | 4rem (64px) | Page section spacing |
 | space-24 | 6rem (96px) | Hero-level spacing |
+| space-32 | 8rem (128px) | Maximum spacing, full-page breaks |
 
 ### Color Tokens (define by role, not by value)
 
@@ -123,12 +125,32 @@ apply a reset like Josh Comeau's CSS Reset or Andy Bell's Modern Reset.
 - Pick one convention (BEM, utility-first, component scoping) and stick with it
 - Consistency matters more than which convention you choose
 
+## CSS Architecture
+
+Use CSS cascade layers (`@layer`) to manage specificity and prevent style conflicts:
+
+- **Layer order**: `@layer reset, base, components, utilities;` — later layers override earlier ones
+- **Resets** go in the lowest layer so they never override component styles
+- **Base** styles (typography defaults, link colors) sit above resets
+- **Components** hold your actual UI styles
+- **Utilities** (overrides, Tailwind-style helpers) go last so they always win
+- This eliminates specificity wars — a utility class always beats a component class regardless of selector complexity
+- Most frameworks handle this for you (Tailwind v4 uses layers natively), but understanding the concept helps when debugging
+
 ## Performance
 
+### Core Web Vitals (what Google actually ranks on)
+
+- **LCP** (Largest Contentful Paint): target < 2.5s — optimize your hero image/heading, preload critical assets
+- **CLS** (Cumulative Layout Shift): target < 0.1 — always set width/height on images, reserve space for dynamic content, avoid injecting content above the fold after load
+- **INP** (Interaction to Next Paint): target < 200ms — keep main thread unblocked, defer heavy computation, use `requestIdleCallback` for non-urgent work
+
+### Asset Optimization
+
 - **Images**: Use WebP/AVIF formats, lazy-load below-fold images, always set width/height to prevent layout shift, target ~300KB max per image
-- **Fonts**: Preload critical fonts, use `font-display: swap`, limit to 2-3 font files
+- **Fonts**: Preload critical fonts, use `font-display: swap`, limit to 2-3 font files. Subset fonts to remove unused character ranges (significant savings for non-Latin scripts)
 - **Scripts**: Minimize third-party scripts, defer non-critical JS
-- **CSS**: Purge unused styles in production
+- **CSS**: Purge unused styles in production. Use `content-visibility: auto` on below-fold sections to skip rendering until needed
 - **Audit**: Use Lighthouse — target Performance >90, Accessibility >90
 
 ## Use Real Content, Not Lorem Ipsum
