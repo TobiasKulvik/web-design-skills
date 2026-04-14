@@ -36,7 +36,7 @@ Background details — metadata, timestamps, fine print, footnotes. Available fo
 - High contrast = important (dark on light, or bright accent on neutrals)
 - Low contrast = de-emphasized (gray text, muted tones)
 - A single bold color in a sea of neutrals creates instant focus
-- Reduce secondary text to 60% lightness to push it to the background
+- Reduce secondary text to ~60% lightness to push it to the background (see `color-systems` for the de-emphasis sweet spot)
 - The most important elements get the highest contrast
 
 ### Position
@@ -109,3 +109,9 @@ Like dropping a whisper in the middle of a loud song — the audience stops and 
 - Creates tension by breaking the natural reading order
 - Only use when the brief allows and the context is creative/editorial
 - Must feel deliberate, not accidental — if it looks like a mistake, it IS a mistake
+
+## See Also
+
+- **`color-systems`** — color contrast for emphasis, the 60% de-emphasis rule, lightness inversion formula
+- **`typography`** — creating hierarchy through font size, weight, and color
+- **`layout-and-spacing`** — spatial hierarchy, white space, focal points

@@ -73,7 +73,8 @@ Give priority to important elements:
 ## Spacing System
 
 ### Base Spacing Scale
-Use a consistent, predictable spacing scale based on powers of 2 or multiples of 4/8:
+Use a consistent, predictable spacing scale based on powers of 2 or multiples of 4/8.
+See `frontend-implementation` for the complete named token table.
 
 **Pixel values:**
 ```
@@ -182,6 +183,12 @@ Create subconscious harmony by deliberately repeating spacing values in unrelate
 - Building: page layouts, card grids, bento boxes, dashboards
 
 **Default to Flexbox** for component-level layouts. Use Grid for page-level structure.
+
+**Subgrid**: When grid children need to align their internal contents across rows (e.g.,
+card titles, descriptions, and buttons all lining up), use `grid-template-rows: subgrid`
+on the child. This lets inner elements participate in the parent's grid tracks. Common use
+case: a row of cards where all titles, all descriptions, and all CTAs align horizontally
+regardless of content length. Supported in all major browsers.
 
 ### Key Layout Values
 

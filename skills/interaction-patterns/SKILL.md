@@ -59,8 +59,9 @@ weights behave — a feather moves differently than a boulder.
 **Never use linear easing**: Linear motion (constant speed) looks robotic and unnatural.
 The only exception is looping digital/pixel-art effects. For everything else, use curves
 with steep acceleration: fast start → gradual deceleration (ease-out), or slow start →
-snap to position (ease-in). A recommended all-purpose curve: cubic-bezier(0.9, 0, 0, 0.1)
-for a steep, natural-feeling motion.
+snap to position (ease-in). For cinematic/large-element reveals, try cubic-bezier(0.9, 0, 0, 0.1)
+for a steep, dramatic-feeling motion. For everyday UI transitions, the reference values
+table below has more appropriate curves per use case.
 
 ### 3. Choreography — Animation Order = Hierarchy
 
@@ -103,6 +104,15 @@ stands out — it's visual noise. Choose:
 
 Only animate `transform` and `opacity` for best performance (GPU-accelerated). Animating
 layout properties (width, height, margin) causes reflow and jank.
+
+### Animation Performance
+
+- **GPU-composited properties**: `transform` and `opacity` are the only properties that animate without triggering layout or paint — always prefer these
+- **`will-change`**: Use sparingly — `will-change: transform` hints the browser to promote an element to its own compositor layer. Apply it just before animating and remove it after. Don't set it on everything; too many layers waste GPU memory
+- **Avoid animating**: `width`, `height`, `top`, `left`, `margin`, `padding`, `border-width` — these trigger layout recalculation on every frame
+- **`color` and `background-color`**: trigger paint but not layout — acceptable for hover states but avoid in scroll-linked animations
+- **View Transitions API**: for page-level transitions (route changes, content swaps) use the View Transitions API (`document.startViewTransition()`) — it handles cross-fade and morph transitions at the browser level with GPU compositing
+- **Scroll-driven animations**: CSS `animation-timeline: scroll()` lets you tie animations to scroll position without JavaScript — better performance than Intersection Observer for scroll-linked effects
 
 ### High-Impact Animation Strategy
 
@@ -169,4 +179,9 @@ layout properties (width, height, margin) causes reflow and jank.
 - Make clickable areas generous (larger than the text)
 - On mobile: swipe gestures should have button alternatives
 - Double-tap zoom: ensure it doesn't conflict with interactions
+
+## See Also
+
+- **`accessibility`** — `prefers-reduced-motion` handling, keyboard interaction patterns
+- **`ux-flows`** — user journey design, friction reduction, multi-step flow patterns
 

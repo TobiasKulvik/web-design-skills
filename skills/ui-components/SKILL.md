@@ -56,7 +56,7 @@ description: UI component design patterns and implementation guidance. Use this 
 
 ## Hero Sections
 
-- The first section users see — only 20% scroll past the fold
+- The first section users see — most visitors never scroll past the fold
 - Make it crystal clear and super motivating
 - **Include**: headline, subheadline (optional), CTA, and supporting image/visual
 - **One column**: simple and direct, great for single messages
@@ -74,9 +74,13 @@ description: UI component design patterns and implementation guidance. Use this 
 
 ## Modals / Dialogs
 
-- **Focus trap**: keyboard focus stays within the modal
-- **Close on Escape key**
-- **Close on backdrop click**
+Use the native `<dialog>` element first — it handles focus trapping, backdrop, and Escape
+key natively via `.showModal()`. Only reach for custom modal implementations when you need
+behavior the native element doesn't support.
+
+- **Focus trap**: keyboard focus stays within the modal (`<dialog>` does this automatically)
+- **Close on Escape key** (`<dialog>` does this automatically)
+- **Close on backdrop click** (add a click handler on the `::backdrop` or outer element)
 - **Return focus** to trigger element on close
 - Prevent body scroll while open
 
@@ -109,10 +113,9 @@ For every component, design these states:
 
 ## Shadows
 
-- Never use pure black shadows — they look harsh and unnatural
-- Use `rgba(0,0,0,0.08)` to `rgba(0,0,0,0.15)` for subtle elevation
-- Or HSL: `hsl(0, 0%, 0% / 0.1)`
-- Layer two shadows for realism: a short tight one (1px blur, 12% opacity) + a longer diffuse one (12px blur, 6% opacity)
+See `color-systems` for the complete shadow reference. Key rules:
+- Never use pure black shadows — use `rgba(0,0,0,0.08)` to `rgba(0,0,0,0.15)`
+- Layer two shadows for realism (short tight + longer diffuse)
 - Shadows replace borders — use one or the other, rarely both
 
 ## Gradients & Depth
@@ -121,3 +124,16 @@ For every component, design these states:
 - Use blurred background images (10–20px Gaussian blur) instead of solid colors for hero sections
 - Subtle noise textures add organic warmth
 - Depth cues: lighter elements appear closer, shadow = elevated
+
+## When to Abstract Components
+
+- **Create a reusable component** when you use the same structure 3+ times with only data changes (cards, list items, buttons with variants)
+- **Keep it inline** for one-off layouts or sections that won't repeat
+- **Small API surface**: a component with 10+ props is too complex — split it or use composition (children/slots) instead
+- **Composition over configuration**: prefer passing children/slots over adding props for every variation — `<Card><CardHeader>` beats `<Card headerTitle="..." headerIcon="..." headerAction="...">`
+- **Name by purpose**: `<PricingCard>` not `<CardVariant3>`
+
+## See Also
+
+- **`color-systems`** — canonical shadow reference, color tokens, dark/light mode
+- **`accessibility`** — component accessibility states, ARIA, keyboard navigation

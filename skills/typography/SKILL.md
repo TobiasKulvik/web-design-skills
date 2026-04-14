@@ -3,6 +3,8 @@ name: typography
 description: Typography system and rules for professional web design. Use this skill when choosing fonts, setting font sizes, configuring line heights, letter spacing, or text styling for any web project. Trigger whenever the agent is writing CSS for text, creating type scales, pairing fonts, or building any UI where text is a primary element—which is virtually every web project since typography IS 80% of UI design.
 ---
 
+# Typography
+
 ## Why Typography Matters
 
 - Most UIs are just text, buttons, and icons. Typography gives you 80% of the design results.
@@ -41,7 +43,7 @@ Variable fonts contain multiple weights/widths in a single file and unlock respo
 
 ## Type Scale (The Practical System)
 
-- Pick a base font size: 14px or 16px (1rem), regular weight, 100% lightness
+- Pick a base font size: 16px (1rem), regular weight, 100% lightness
 - Design everything at that size first
 - When you need to go up or down, move in 2px increments: that's your type scale
 - You only need 3-4 font sizes for 90% of UIs: base (14-16px), one heading size, one small size
@@ -118,9 +120,9 @@ Having them defined and using them consistently does.
 
 ## Dark Mode Typography
 
-- Lightness inversion formula: dark mode L value → light mode = (100 - L)
+- Use the lightness inversion formula from `color-systems` (L = 100 - dark mode L) to generate dark mode text values
 - Headings: ~90-95% lightness (NOT pure white 100% — too harsh, causes eye strain)
-- Secondary text: ~60% lightness on dark backgrounds (the de-emphasis sweet spot)
+- Secondary text: ~60% lightness on dark backgrounds (see `color-systems` for the de-emphasis sweet spot)
 - Body text: ~75-80% lightness for comfortable reading
 - Swap via your framework's theming mechanism (Tailwind `dark:`, CSS variables, theme provider)
 
@@ -133,3 +135,9 @@ For editorial content, long-form pages, or storytelling layouts:
 - This creates "micro movement" — the eye stutters slightly on those words, increasing engagement
 - It doesn't feel like a highlight — it feels like a pulse, a rhythm in the text
 - Use sparingly: works well for editorial, landing page copy, and storytelling — not for app UI or dashboards
+
+## See Also
+
+- **`color-systems`** — lightness inversion formula, the 60% de-emphasis rule, dark/light mode color tokens
+- **`visual-hierarchy`** — using size, weight, and color together to create hierarchy
+- **`frontend-implementation`** — typography token reference table
